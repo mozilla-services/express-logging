@@ -23,7 +23,7 @@
     "jshint": "2.x",
     "mocha": "1.18.x",
     "sinon": "1.9.x",
-    "supertest": "0.10.x"
+    "supertest": "0.11.x"
   },
   "scripts": {
     "test": "make test",
