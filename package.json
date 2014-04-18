@@ -1,0 +1,32 @@
+{
+  "name": "express-logging",
+  "description": "A middleware that provides logging of express requests calls.",
+  "version": "0.1.0-DEV",
+  "author": "Rémy Hubscher <rhubscher@mozilla.com>",
+  "homepage": "https://github.com/mozilla-services/express-logging/",
+  "bugs": "https://github.com/mozilla-services/express-logging/issues/",
+  "license" : "MPL-2.0",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mozilla-services/express-logging.git"
+  },
+  "keywords": ["express", "logging", "request", "response", "http", "verb", "status", "code"],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "strftime": "0.8.0"
+  },
+  "devDependencies": {
+    "chai": "1.9.x",
+    "express": "3.x",
+    "jshint": "2.x",
+    "mocha": "1.18.x",
+    "sinon": "1.9.x",
+    "supertest": "0.10.x"
+  },
+  "scripts": {
+    "test": "make test",
+    "start": "make demo"
+  }
+}
