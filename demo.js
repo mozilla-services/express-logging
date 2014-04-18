@@ -7,7 +7,11 @@ var express = require('express');
 var logging = require('express-logging');
 
 var app = express();
-app.use(logging);
+
+// You can use the default
+app.use(logging());
+// Or you can change the date format
+// app.use(logging("%y-%m-%d %H:%M:%S"));
 
 app.get('/', function (req, res) {
   res.json(200, "Hello Logging");

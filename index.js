@@ -7,21 +7,27 @@ var strftime = require('strftime');
 
 /**
  * The logging middleware write request log on the console.
+ *
+ * @param {String} strftime date format. Default: "%y/%b/%d %H:%M:%S"
+ *
  */
+function makeLogging(dateFormat) {
+  var dateFormat = dateFormat || "%y/%b/%d %H:%M:%S";
 
-function logging(req, res, next){
-  var start =  new Date();
-  res.on('finish', function() {
-    var length = res._headers['content-length'] || "";
-    var stop = new Date();
-
-    console.log(
-      '[%s] "%s %s HTTP/%s.%s" %s %s — (%s ms)',
-      strftime("%y/%b/%d %H:%M:%S", start),
-      req.method, req.url, req.httpVersionMajor, req.httpVersionMinor,
-      res.statusCode, length, stop - start);
-  });
-  next();
+  return function logging(req, res, next){
+    var start =  new Date();
+    res.on('finish', function() {
+      var length = res._headers['content-length'] || "";
+      var stop = new Date();
+      
+      console.log(
+        '[%s] "%s %s HTTP/%s.%s" %s %s — (%s ms)',
+        strftime(dateFormat, start),
+        req.method, req.url, req.httpVersionMajor, req.httpVersionMinor,
+        res.statusCode, length, stop - start);
+    });
+    next();
+  };
 }
 
-module.exports = logging;
+module.exports = makeLogging;

@@ -6,4 +6,5 @@ This document describes changes between each past release.
 0.1.0 (unreleased)
 ------------------
 
-- Create the express-logging middleware
+- Create the express-logging middleware.
+- Let the user change the date format.
