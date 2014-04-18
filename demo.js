@@ -4,7 +4,7 @@
 "use strict";
 
 var express = require('express');
-var logging = require('express-logging');
+var logging = require('./index');
 
 var app = express();
 
