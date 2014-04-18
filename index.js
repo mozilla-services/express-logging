@@ -12,14 +12,14 @@ var strftime = require('strftime');
  *
  */
 function makeLogging(dateFormat) {
-  var dateFormat = dateFormat || "%y/%b/%d %H:%M:%S";
+  dateFormat = dateFormat || "%y/%b/%d %H:%M:%S";
 
   return function logging(req, res, next){
     var start =  new Date();
     res.on('finish', function() {
       var length = res._headers['content-length'] || "";
       var stop = new Date();
-      
+
       console.log(
         '[%s] "%s %s HTTP/%s.%s" %s %s — (%s ms)',
         strftime(dateFormat, start),
